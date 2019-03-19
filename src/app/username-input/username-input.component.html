@@ -1,0 +1,7 @@
+<label>User Name</label>
+<input type="text" class="form-control" [(ngModel)]="userName" (input)="noUser()">
+<br>
+<p>{{ userName }}</p>
+<button [disabled]="noUserName" (click)="reset()" class="btn btn-success">Empty?</button>
+<!-- A simpler and shorter way of doing it without need for methods
+<button [disabled]="userName === ''" (click)="userName = ''" class="btn btn-success">Empty?</button> -->

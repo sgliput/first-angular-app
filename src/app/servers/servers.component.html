@@ -1,0 +1,32 @@
+
+<label>Server Name</label>
+<!-- This input uses event binding and the $event keyword for accessing event information
+<input 
+type="text" 
+class="form-control"
+(input)="onUpdateServerName($event)"
+> -->
+<!-- This input uses two-way binding to do the same as above but also updating serverName if it changes in the TypeScript file. -->
+<input 
+type="text" 
+class="form-control"
+[(ngModel)] = "serverName"
+>
+<br>
+<!-- This button updates its disabled property with property binding and has a click event using event binding. -->
+<button [disabled]="!allowNewServer" (click)="onCreateServer()" class="btn btn-primary">Add Server</button>
+<!-- Below is another way of doing string interpolation, instead with property binding.
+    <p [innerText]="allowNewServer"></p> -->
+<!--Below is simple string interpolation. 
+    <br><br>
+<p>{{ serverName }}</p> -->
+<br>
+<!-- <p>{{ serverCreationStatus }}</p> -->
+<p *ngIf="serverCreated; else noServer">Server was created. Server name is {{ serverName }}.</p>
+<ng-template #noServer>
+    No server was created.
+</ng-template>
+<app-server *ngFor="let server of servers"></app-server>
+
+
+

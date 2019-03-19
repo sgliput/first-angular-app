@@ -1,0 +1,11 @@
+<button (click)="onPress()" class="btn btn-success">Push Me</button>
+<br><br>
+<p *ngIf="buttonPressed">If you click the button, numbers will appear below.</p>
+<ul *ngIf="numberOfPresses > 0">
+  <!-- 
+    The two <li> elements below do the same thing, but the bottom one also allows access to the array index.
+    The first <li> tag only works when the contents of the presses array are incremental numbers (1, 2, 3, etc.), but the bottom will work with any content, such as timestamps, strings, etc.
+      
+    <li *ngFor="let number of presses" [ngStyle]="{backgroundColor: number >= 5 ? 'blue': 'transparent'}" [ngClass]="{number: number >= 5}"> {{ number }}</li> -->
+  <li *ngFor="let number of presses; let i = index" [ngStyle]="{backgroundColor: i >= 4 ? 'blue': 'transparent'}" [ngClass]="{number: i >= 4}"> {{ number }}</li>
+</ul>
